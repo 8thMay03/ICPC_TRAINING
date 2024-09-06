@@ -1,0 +1,2 @@
+// Giải thích test 1: Sắp xếp đoạn đường theo thứ tự 2-1. Khi Rùa xuất phát ở vị trí nào đó trong đoạn [0, 0.5], Thỏ sẽ bắt kịp Rùa trên đoạn đường này. Do đó, xác suất chiến thắng của Thỏ là 0.5/2 = ¼.
+// Giải thích test 2: Thỏ chạy chậm hơn Rùa nên luôn luôn bị thua.

@@ -1,0 +1,5 @@
+Giải thích test 1:
+C[0] = A[1] XOR 3 = 1
+C[1] = A[2] XOR 3 = 2
+C[2] = A[0] XOR 3 = 3
+Giải thích test 4: không tồn tại đáp án.
