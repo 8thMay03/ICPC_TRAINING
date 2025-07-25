@@ -4,6 +4,9 @@
 
 using namespace std;
 
+// Nén số để có thể xử lý với số nhỏ
+// Xét hình chữ nhật bao quanh tất cả các hình chữ nhật con, (độ dài dôi ra 1 đơn vị, độ rông cũng dôi ra 1 đơn vị), chúng ta sẽ BFS trên hình chữ nhật bao quanh này xem có bao nhiêu vùng được tạo ra, mỗi 1 đường thẳng sẽ ngăn cách các ô kế nhau
+
 void compress(vector<vector<int>>& a) {
     vector<int> vals;
     for (const auto& row : a) {
@@ -45,6 +48,7 @@ void solve() {
         min_x = min({min_x, xa, xb});
         max_y = max({max_y, ya, yb});
         min_y = min({min_y, ya, yb});
+        // Lưu các ô kế nhau sẽ không thể di chuyển qua lại
         for (int x = xa; x < xb; x++) {
             if (ya > 0) {
                 blocked[{{x, ya}, {x, ya - 1}}] = 1;
@@ -66,14 +70,12 @@ void solve() {
             }
         }
     }
-    // cerr << max_x << ' ' << min_x << ' ' << max_y << ' ' << min_y << endl;
     int ans = 0;
-    vector<vector<bool>> vis(max_x + 1, vector<bool> (max_y + 1, false));
+    vector<vector<bool>> vis(max_x + 1, vector<bool> (max_y + 1, false));\
+    // BFS bắt đầu từ ô đầu tiên đến hết grid
     for (int i = 0; i <= max_x; i++) {
         for (int j = 0; j <= max_y; j++) {
             if (!vis[i][j]) {
-                // cerr << "-----------------------------" << endl;
-                // cerr << i << ' ' << j << endl;
                 ans++;
                 queue<pair<int, int>> q;
                 q.emplace(i, j);
@@ -85,7 +87,6 @@ void solve() {
                         int nx = x + dx[k];
                         int ny = y + dy[k];
                         if (nx >= 0 && nx <= max_x && ny >= 0 && ny <= max_y && !vis[nx][ny] && !blocked[{{x, y}, {nx, ny}}]) {
-                            // cerr << nx << ' ' << ny << endl;
                             q.emplace(nx, ny);
                             vis[nx][ny] = true;
                         }
