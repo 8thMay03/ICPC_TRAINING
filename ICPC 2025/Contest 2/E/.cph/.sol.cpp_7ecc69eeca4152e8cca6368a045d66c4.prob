@@ -1,0 +1,1 @@
+{"name":"Local: sol","url":"d:\\Codespace\\icpc\\Contest 2\\E\\sol.cpp","tests":[{"id":1754196349200,"input":"4\n\n3 3\n\n3 6 9\n\n1 100\n\n4\n\n4 2\n\n2 4 7 9\n\n6 1\n\n1 1 1 2 2 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codespace\\icpc\\Contest 2\\E\\sol.cpp","group":"local","local":true}
